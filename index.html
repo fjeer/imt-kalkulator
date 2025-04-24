@@ -15,9 +15,9 @@
         <!-- Kolom Kiri -->
     <div class="col-md-4">
         <div class="logo">
-            <img src="img/logo.png" alt="" width="200px">
+            <img src="img/logo.png" alt="" width="300px">
         </div>
-      <h2 class="fw-bold">BMI Kalkulator</h2>
+      <h2 class="fw-bold bmi">BMI Kalkulator</h2>
       <p>Berat badan ideal adalah impian semua orang. Tidak hanya menunjang penampilan, tetapi juga menandakan kondisi tubuh yang sehat.</p>
       <p>
         Body Mass Index atau BMI Kalkulator ini menggunakan Klasifikasi Nasional referensi dari Alodokter dan kementrian kesehatan Republik Indonesia
@@ -63,7 +63,7 @@
     </div>
 
     <!-- kolom kanan -->
-     <div class="col-md-4 flex-container mt-5">
+     <div class="col-md-4 flex-container mt-2">
             <h2 class="fw-bold mb-3">Tabel Klasifikasi IMT</h2>
 
             <caption class="caption-top">Klasifikasi versi Nasional</caption>
@@ -130,47 +130,7 @@
     </div> 
 </div>
 
-<script>
-  const genderCards = document.querySelectorAll('.gender-card');
-  genderCards.forEach(card => {
-    card.addEventListener('click', () => {
-      genderCards.forEach(c => c.classList.remove('active'));
-      card.classList.add('active');
-      document.getElementById('gender').value = card.dataset.gender;
-    });
-  });
-
-  document.getElementById("bmiForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const berat = parseFloat(document.getElementById("berat").value);
-    const tinggi = parseFloat(document.getElementById("tinggi").value) / 100;
-    const gender = document.getElementById("gender").value;
-
-    if (!gender) {
-      alert("Silakan pilih jenis kelamin terlebih dahulu.");
-      return;
-    }
-
-    if (berat > 0 && tinggi > 0) {
-      const bmi = (berat / (tinggi * tinggi)).toFixed(1);
-      let kategori = "";
-
-      if (bmi < 18.5) {
-        kategori = "Kurus";
-      } else if (bmi < 24.9) {
-        kategori = "Normal";
-      } else if (bmi < 29.9) {
-        kategori = "Gemuk";
-      } else {
-        kategori = "Obesitas";
-      }
-
-      document.getElementById("nilaiBMI").innerText = `${bmi}`;
-      document.getElementById("kategoriBMI").innerText = `Kategori: ${kategori}`;
-      document.getElementById("hasil").style.display = "block";
-    }
-  });
-</script>
+<script src="js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
   </body>
-</html>  
+</html>   
